@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Employee Dashboard</title>
 
@@ -13,32 +16,42 @@
 
 <body>
 
-<nav class="navbar navbar-dark bg-dark">
+<div class="container-fluid">
 
-<div class="container">
+<div class="row">
 
-<span class="navbar-brand">
-Employee Dashboard
-</span>
+<!-- Sidebar -->
+
+<div class="col-md-2 sidebar">
+
+<h3 class="text-white">
+HRMS
+</h3>
+
+<a href="dashboard.html">📊 Dashboard</a>
+<a href="profile.html">👤 Profile</a>
+<a href="attendance.html">📅 Attendance</a>
+<a href="leave.html">📝 Leave</a>
+<a href="payroll.html">💰 Payroll</a>
 
 </div>
 
-</nav>
+<!-- Main Content -->
 
-<div class="container mt-5">
+<div class="col-md-10 p-4">
+
+<h1 class="mb-4">
+Employee Dashboard
+</h1>
 
 <div class="row g-4">
 
 <div class="col-md-3">
 
-<div class="card dashboard-card p-4">
+<div class="card stat-card p-4">
 
-<h4>Profile</h4>
-
-<a href="profile.html"
-class="btn btn-primary">
-Open
-</a>
+<h5>Total Employees</h5>
+<h2>150</h2>
 
 </div>
 
@@ -46,14 +59,10 @@ Open
 
 <div class="col-md-3">
 
-<div class="card dashboard-card p-4">
+<div class="card stat-card p-4">
 
-<h4>Attendance</h4>
-
-<a href="attendance.html"
-class="btn btn-success">
-Open
-</a>
+<h5>Attendance</h5>
+<h2>92%</h2>
 
 </div>
 
@@ -61,14 +70,10 @@ Open
 
 <div class="col-md-3">
 
-<div class="card dashboard-card p-4">
+<div class="card stat-card p-4">
 
-<h4>Leave</h4>
-
-<a href="leave.html"
-class="btn btn-warning">
-Open
-</a>
+<h5>Leave Requests</h5>
+<h2>8</h2>
 
 </div>
 
@@ -76,14 +81,26 @@ Open
 
 <div class="col-md-3">
 
-<div class="card dashboard-card p-4">
+<div class="card stat-card p-4">
 
-<h4>Payroll</h4>
+<h5>Payroll</h5>
+<h2>₹8.5L</h2>
 
-<a href="payroll.html"
-class="btn btn-info">
-Open
-</a>
+</div>
+
+</div>
+
+</div>
+
+<div class="card p-4 mt-5">
+
+<h3 class="mb-4">
+Attendance Overview
+</h3>
+
+<div class="chart-container">
+
+<canvas id="attendanceChart"></canvas>
 
 </div>
 
@@ -92,6 +109,59 @@ Open
 </div>
 
 </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+const ctx =
+document.getElementById(
+'attendanceChart'
+);
+
+new Chart(ctx, {
+
+type: 'bar',
+
+data: {
+
+labels: [
+'Mon',
+'Tue',
+'Wed',
+'Thu',
+'Fri'
+],
+
+datasets: [{
+
+label: 'Attendance %',
+
+data: [
+80,
+90,
+95,
+85,
+92
+]
+
+}]
+
+},
+
+options: {
+
+responsive: true,
+
+maintainAspectRatio: false
+
+}
+
+});
+
+</script>
 
 </body>
 
