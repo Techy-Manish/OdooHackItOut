@@ -1,0 +1,38 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#f4f6f9;
+    font-family:Arial, sans-serif;
+}
+
+.card{
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.sidebar{
+    min-height:100vh;
+    background:#212529;
+}
+
+.sidebar a{
+    color:white;
+    text-decoration:none;
+    display:block;
+    padding:12px;
+}
+
+.sidebar a:hover{
+    background:#343a40;
+}
+
+.dashboard-card{
+    border-radius:15px;
+}
