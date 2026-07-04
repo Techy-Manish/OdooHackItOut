@@ -1,50 +1,60 @@
-// server.js
-require('dotenv').config(); // Loads environment variables from a .env file
-const express = require('express');
-const cors = require('cors');
-const connectDB = require('./config/db');
+require("dotenv").config();
 
-// Initialize Express App
-const app = express();
+const express =
+require("express");
 
-// 1. Connect to Database
+const cors =
+require("cors");
+
+const connectDB =
+require("./config/db");
+
+const authRoutes =
+require("./routes/authRoutes");
+
+const attendanceRoutes =
+require("./routes/attendanceRoutes");
+
+const leaveRoutes =
+require("./routes/leaveRoutes");
+
+const payrollRoutes =
+require("./routes/payrollRoutes");
+
+const app =
+express();
+
 connectDB();
 
-// 2. Global Middlewares
-app.use(cors());                  // Enables Cross-Origin Resource Sharing (Crucial for connecting React/Frontend)
-app.use(express.json());          // Body parser: parses incoming requests with JSON payloads
-app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
-// 3. Import Routes (Uncomment these as you create them in your /routes folder)
-// const authRoutes = require('./routes/auth.routes');
-// const employeeRoutes = require('./routes/employee.routes');
-// const attendanceRoutes = require('./routes/attendance.routes');
+app.use(express.json());
 
-// 4. Mount Routes
-// app.use('/api/auth', authRoutes);
-// app.use('/api/employees', employeeRoutes);
-// app.use('/api/attendance', attendanceRoutes);
+app.use(
+"/api/auth",
+authRoutes
+);
 
-// Base Health-Check Route
-app.get('/', (req, res) => {
-    res.status(200).json({ 
-        message: "Welcome to the Human Resource Management System (HRMS) API Gateway",
-        status: "Running" 
-    });
-});
+app.use(
+"/api/attendance",
+attendanceRoutes
+);
 
-// Global Error Handling Middleware (Catches unhandled errors beautifully)
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).json({
-        success: false,
-        message: err.message || 'Internal Server Error'
-    });
-});
+app.use(
+"/api/leave",
+leaveRoutes
+);
 
-// 5. Define Server Port & Start
-const PORT = process.env.PORT || 5000;
+app.use(
+"/api/payroll",
+payrollRoutes
+);
 
-app.listen(PORT, () => {
-    console.log(`⚡ HRMS Server running in ${process.env.NODE_ENV || 'development'} mode on http://localhost:${PORT}`);
-});
+app.listen(
+process.env.PORT,
+()=>{
+console.log(
+"Server Running"
+);
+}
+);
