@@ -1,0 +1,175 @@
+body{
+
+    background:#f5f7fb;
+
+    font-family:Arial, Helvetica, sans-serif;
+
+}
+
+/* Sidebar */
+
+.sidebar{
+
+    background:#1f2937;
+
+    min-height:100vh;
+
+}
+
+.sidebar h3{
+
+    font-weight:bold;
+
+    letter-spacing:1px;
+
+}
+
+.sidebar a{
+
+    display:block;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:14px;
+
+    margin:8px 0;
+
+    border-radius:8px;
+
+    transition:.3s;
+
+}
+
+.sidebar a:hover{
+
+    background:#2563eb;
+
+    transform:translateX(5px);
+
+}
+
+/* Navbar */
+
+.navbar{
+
+    border-radius:0 0 12px 12px;
+
+}
+
+/* Cards */
+
+.card{
+
+    border:none;
+
+    border-radius:15px;
+
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+    transition:.3s;
+
+}
+
+.stat-card{
+
+    text-align:center;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.1);
+
+}
+
+.stat-card h2{
+
+    color:#2563eb;
+
+    font-weight:bold;
+
+}
+
+.stat-card i{
+
+    font-size:40px;
+
+}
+
+/* Chart */
+
+canvas{
+
+    width:100%!important;
+
+}
+
+/* Buttons */
+
+.btn{
+
+    border-radius:10px;
+
+    transition:.3s;
+
+}
+
+.btn:hover{
+
+    transform:scale(1.05);
+
+}
+
+/* Alerts */
+
+.alert{
+
+    border:none;
+
+    border-radius:12px;
+
+}
+
+/* List */
+
+.list-group-item{
+
+    border:none;
+
+    padding:16px;
+
+}
+
+/* Footer */
+
+footer{
+
+    font-size:15px;
+
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.sidebar{
+
+    min-height:auto;
+
+}
+
+.sidebar a{
+
+    text-align:center;
+
+}
+
+.navbar h3{
+
+    font-size:22px;
+
+}
+
+}
