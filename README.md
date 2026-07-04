@@ -1,4 +1,3 @@
-
 🚀 Odoo HRMS
 
 Every Workday, Perfectly Aligned
