@@ -10,6 +10,9 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 <link rel="stylesheet" href="css/style.css">
 
 </head>
@@ -22,69 +25,148 @@
 
 <!-- Sidebar -->
 
-<div class="col-md-2 sidebar">
+<div class="col-lg-2 col-md-3 sidebar p-3">
 
-<h3 class="text-white">
+<h3 class="text-center text-white mb-4">
+
+<i class="bi bi-buildings-fill"></i>
+
 HRMS
+
 </h3>
 
-<a href="dashboard.html">📊 Dashboard</a>
-<a href="profile.html">👤 Profile</a>
-<a href="attendance.html">📅 Attendance</a>
-<a href="leave.html">📝 Leave</a>
-<a href="payroll.html">💰 Payroll</a>
+<hr class="text-light">
+
+<a href="dashboard.html">
+<i class="bi bi-speedometer2"></i>
+Dashboard
+</a>
+
+<a href="profile.html">
+<i class="bi bi-person-circle"></i>
+Profile
+</a>
+
+<a href="attendance.html">
+<i class="bi bi-calendar-check"></i>
+Attendance
+</a>
+
+<a href="leave.html">
+<i class="bi bi-envelope-paper"></i>
+Leave
+</a>
+
+<a href="payroll.html">
+<i class="bi bi-cash-stack"></i>
+Payroll
+</a>
+
+<hr class="text-light">
+
+<button
+class="btn btn-danger w-100 mt-3"
+onclick="logout()">
+
+<i class="bi bi-box-arrow-right"></i>
+
+Logout
+
+</button>
 
 </div>
 
 <!-- Main Content -->
 
-<div class="col-md-10 p-4">
+<div class="col-lg-10 col-md-9 bg-light min-vh-100">
 
-<h1 class="mb-4">
+<!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg bg-white shadow-sm px-4">
+
+<div class="container-fluid">
+
+<h3 class="m-0">
+
 Employee Dashboard
-</h1>
+
+</h3>
+
+<div>
+
+<span class="me-3">
+
+<i class="bi bi-bell-fill fs-5"></i>
+
+</span>
+
+<span class="fw-bold">
+
+<i class="bi bi-person-circle"></i>
+
+<span id="userName">
+
+Employee
+
+</span>
+
+</span>
+
+</div>
+
+</div>
+
+</nav>
+
+<div class="container mt-4">
+
+<!-- Welcome Card -->
+
+<div class="alert alert-primary shadow">
+
+<h4>
+
+👋 Welcome,
+
+<span id="welcomeName">
+
+Employee
+
+</span>
+
+</h4>
+
+<p class="mb-0">
+
+Hope you're having a productive day!
+
+</p>
+
+</div>
+
+<!-- Statistics Cards -->
 
 <div class="row g-4">
 
-<div class="col-md-3">
+<div class="col-lg-3 col-md-6">
 
-<div class="card stat-card p-4">
+<div class="card shadow border-0 text-center">
 
-<h5>Total Employees</h5>
-<h2>150</h2>
+<div class="card-body">
 
-</div>
+<i class="bi bi-people-fill text-primary fs-1"></i>
 
-</div>
+<h5 class="mt-3">
 
-<div class="col-md-3">
+Total Employees
 
-<div class="card stat-card p-4">
+</h5>
 
-<h5>Attendance</h5>
-<h2>92%</h2>
+<h2>
 
-</div>
+150
 
-</div>
-
-<div class="col-md-3">
-
-<div class="card stat-card p-4">
-
-<h5>Leave Requests</h5>
-<h2>8</h2>
-
-</div>
-
-</div>
-
-<div class="col-md-3">
-
-<div class="card stat-card p-4">
-
-<h5>Payroll</h5>
-<h2>₹8.5L</h2>
+</h2>
 
 </div>
 
@@ -92,19 +174,254 @@ Employee Dashboard
 
 </div>
 
-<div class="card p-4 mt-5">
+<div class="col-lg-3 col-md-6">
 
-<h3 class="mb-4">
-Attendance Overview
-</h3>
+<div class="card shadow border-0 text-center">
 
-<div class="chart-container">
+<div class="card-body">
 
-<canvas id="attendanceChart"></canvas>
+<i class="bi bi-calendar-check-fill text-success fs-1"></i>
+
+<h5 class="mt-3">
+
+Present Today
+
+</h5>
+
+<h2>
+
+136
+
+</h2>
 
 </div>
 
 </div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card shadow border-0 text-center">
+
+<div class="card-body">
+
+<i class="bi bi-envelope-paper-fill text-warning fs-1"></i>
+
+<h5 class="mt-3">
+
+Pending Leaves
+
+</h5>
+
+<h2>
+
+8
+
+</h2>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card shadow border-0 text-center">
+
+<div class="card-body">
+
+<i class="bi bi-cash-stack text-danger fs-1"></i>
+
+<h5 class="mt-3">
+
+Monthly Salary
+
+</h5>
+
+<h2>
+
+₹45,000
+
+</h2>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Attendance Chart -->
+
+<div class="card shadow mt-4">
+
+    <div class="card-header bg-primary text-white">
+
+        <h5 class="mb-0">
+            <i class="bi bi-bar-chart-fill"></i>
+            Attendance Overview
+        </h5>
+
+    </div>
+
+    <div class="card-body">
+
+        <canvas id="attendanceChart" height="90"></canvas>
+
+    </div>
+
+</div>
+
+<!-- Quick Actions -->
+
+<div class="card shadow mt-4">
+
+    <div class="card-header">
+
+        <h5 class="mb-0">
+            ⚡ Quick Actions
+        </h5>
+
+    </div>
+
+    <div class="card-body">
+
+        <div class="row g-3">
+
+            <div class="col-md-3">
+                <a href="attendance.html" class="btn btn-primary w-100">
+                    <i class="bi bi-calendar-check"></i><br>
+                    Attendance
+                </a>
+            </div>
+
+            <div class="col-md-3">
+                <a href="leave.html" class="btn btn-warning w-100 text-white">
+                    <i class="bi bi-envelope-paper"></i><br>
+                    Apply Leave
+                </a>
+            </div>
+
+            <div class="col-md-3">
+                <a href="payroll.html" class="btn btn-success w-100">
+                    <i class="bi bi-cash-stack"></i><br>
+                    Payroll
+                </a>
+            </div>
+
+            <div class="col-md-3">
+                <a href="profile.html" class="btn btn-info text-white w-100">
+                    <i class="bi bi-person-circle"></i><br>
+                    Profile
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="row mt-4">
+
+    <!-- Recent Activities -->
+
+    <div class="col-lg-6">
+
+        <div class="card shadow h-100">
+
+            <div class="card-header bg-success text-white">
+
+                Recent Activities
+
+            </div>
+
+            <ul class="list-group list-group-flush">
+
+                <li class="list-group-item">
+                    ✅ Checked In - 09:05 AM
+                </li>
+
+                <li class="list-group-item">
+                    📝 Leave Request Submitted
+                </li>
+
+                <li class="list-group-item">
+                    💰 Payroll Updated
+                </li>
+
+                <li class="list-group-item">
+                    👤 Profile Updated
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <!-- Announcements -->
+
+    <div class="col-lg-6">
+
+        <div class="card shadow h-100">
+
+            <div class="card-header bg-warning">
+
+                Company Announcements
+
+            </div>
+
+            <div class="card-body">
+
+                <div class="alert alert-info">
+
+                    📢 Team Meeting Today at 3:00 PM
+
+                </div>
+
+                <div class="alert alert-warning">
+
+                    📅 Performance Review starts next Monday.
+
+                </div>
+
+                <div class="alert alert-success">
+
+                    🎉 Employee Wellness Week begins tomorrow.
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Date Card -->
+
+<div class="card shadow mt-4">
+
+    <div class="card-body text-center">
+
+        <h5>Today's Date</h5>
+
+        <h3 id="todayDate"></h3>
+
+    </div>
+
+</div>
+
+<footer class="text-center mt-5 mb-4 text-muted">
+
+    © 2026 HRMS | Employee Management System
+
+</footer>
 
 </div>
 
@@ -116,53 +433,74 @@ Attendance Overview
 
 <script>
 
-const ctx =
-document.getElementById(
-'attendanceChart'
-);
+document.getElementById("userName").innerHTML =
+localStorage.getItem("userName") || "Employee";
+
+document.getElementById("welcomeName").innerHTML =
+localStorage.getItem("userName") || "Employee";
+
+document.getElementById("todayDate").innerHTML =
+new Date().toDateString();
+
+const ctx = document.getElementById('attendanceChart');
 
 new Chart(ctx, {
 
-type: 'bar',
+type:'bar',
 
-data: {
+data:{
 
-labels: [
-'Mon',
-'Tue',
-'Wed',
-'Thu',
-'Fri'
-],
+labels:['Mon','Tue','Wed','Thu','Fri'],
 
-datasets: [{
+datasets:[{
 
-label: 'Attendance %',
+label:'Attendance %',
 
-data: [
-80,
-90,
-95,
-85,
-92
+data:[90,95,88,97,92],
+
+backgroundColor:[
+'#0d6efd',
+'#198754',
+'#ffc107',
+'#dc3545',
+'#6610f2'
 ]
 
 }]
 
 },
 
-options: {
+options:{
 
-responsive: true,
+responsive:true,
 
-maintainAspectRatio: false
+plugins:{
+
+legend:{
+
+display:true
+
+}
+
+}
 
 }
 
 });
 
+function logout(){
+
+if(confirm("Are you sure you want to logout?")){
+
+localStorage.removeItem("loggedIn");
+
+window.location.href="index.html";
+
+}
+
+}
+
 </script>
 
 </body>
-
 </html>
